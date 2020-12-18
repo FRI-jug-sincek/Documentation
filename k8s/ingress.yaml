@@ -20,7 +20,7 @@ spec:
             backend:
               serviceName: apartments
               servicePort: 8080
-#          - path: /images(/|$)(.*)
-#              backend:
-#                serviceName: images
-#                servicePort: 8082
+          - path: /images(/|$)(.*)
+            backend:
+              serviceName: images
+              servicePort: 8080
