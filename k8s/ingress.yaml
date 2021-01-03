@@ -8,6 +8,10 @@ metadata:
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
     nginx.ingress.kubernetes.io/use-regex: "true"
     nginx.ingress.kubernetes.io/rewrite-target: /$2
+    nginx.ingress.kubernetes.io/enable-cors: "true"
+    nginx.ingress.kubernetes.io/cors-allow-methods: "GET, POST, DELETE, HEAD, OPTIONS, PUT"
+    nginx.ingress.kubernetes.io/cors-allow-origin: "*"
+    nginx.ingress.kubernetes.io/cors-allow-credentials: "true"
 spec:
   rules:
     - http:
@@ -23,4 +27,12 @@ spec:
           - path: /images(/|$)(.*)
             backend:
               serviceName: images
+              servicePort: 8080
+          - path: /chat(/|$)(.*)
+            backend:
+              serviceName: chat
+              servicePort: 8080
+          - path: /matching(/|$)(.*)
+            backend:
+              serviceName: matching
               servicePort: 8080
